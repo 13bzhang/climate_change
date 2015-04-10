@@ -1,7 +1,5 @@
 # Climate Change in North America
 
-## Baobao Zhang
-
 ## Summary
 Using average monthly surface temperature data from the National Oceanic and Atmospheric Administration, I analyzed the rate of climate change in the U.S. and Canada for two periods: 1950-1980 and 1980-2010. Using data visualization and regression analysis, I determine that the rate of global warming is faster in the second period than the first -- at about a rate of 0.036 degrees C annually. Furthermore, Western parts of the U.S. and Canada, including Alaska, experience higher rates of warming compared with other regions. 
 
@@ -47,27 +45,27 @@ In these following animated heatmaps, I display the deviation from the baseline 
 
 ### Years: 1950-1980
 
-![1 1](graphics/ani_1_1.gif) 
+![1 1](graphics/ana_1_1.gif) 
 
-![1 2](graphics/ani_1_2.gif)
+![1 2](graphics/ana_1_2.gif)
 
-![1 3](graphics/ani_1_3.gif)
+![1 3](graphics/ana_1_3.gif)
 
-![1 4](graphics/ani_1_4.gif)
+![1 4](graphics/ana_1_4.gif)
 
-![1 5](graphics/ani_1_5.gif)
+![1 5](graphics/ana_1_5.gif)
 
-![1 6](graphics/ani_1_6.gif)
+![1 6](graphics/ana_1_6.gif)
 
-![1 7](graphics/ani_1_7.gif)
+![1 7](graphics/ana_1_7.gif)
 
-![1 8](graphics/ani_1_8.gif)
+![1 8](graphics/ana_1_8.gif)
 
-![1 9](graphics/ani_1_9.gif)
+![1 9](graphics/ana_1_9.gif)
 
-![1 10](graphics/ani_1_10.gif)
+![1 10](graphics/ana_1_10.gif)
 
-![1 11](graphics/ani_1_11.gif)
+![1 11](graphics/ana_1_11.gif)
 
 ![1 12](graphics/ani_1_12.gif)
 
