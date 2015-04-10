@@ -71,29 +71,29 @@ In these following animated heatmaps, I display the deviation from the baseline 
 
 ### Years: 1980-2010
 
-![2 1](graphics/ani_2_1.gif) 
+![2 1](graphics/ana_2_1.gif) 
 
-![2 2](graphics/ani_2_2.gif)
+![2 2](graphics/ana_2_2.gif)
 
-![2 3](graphics/ani_2_3.gif)
+![2 3](graphics/ana_2_3.gif)
 
-![2 4](graphics/ani_2_4.gif)
+![2 4](graphics/ana_2_4.gif)
 
-![2 5](graphics/ani_2_5.gif)
+![2 5](graphics/ana_2_5.gif)
 
-![2 6](graphics/ani_2_6.gif)
+![2 6](graphics/ana_2_6.gif)
 
-![2 7](graphics/ani_2_7.gif)
+![2 7](graphics/ana_2_7.gif)
 
-![2 8](graphics/ani_2_8.gif)
+![2 8](graphics/ana_2_8.gif)
 
-![2 9](graphics/ani_2_9.gif)
+![2 9](graphics/ana_2_9.gif)
 
-![2 10](graphics/ani_2_10.gif)
+![2 10](graphics/ana_2_10.gif)
 
-![2 11](graphics/ani_2_11.gif)
+![2 11](graphics/ana_2_11.gif)
 
-![2 12](graphics/ani_2_12.gif)
+![2 12](graphics/ana_2_12.gif)
 
 ## Estimating the Rate of Warming
 
@@ -104,6 +104,16 @@ Finally, I try to estimate the rate of warming across the entire region of inter
 ![Time Series 2](graphics/main_plot_2.png)
 
 Besides plotting the actual data in each plot, I included the fitted trend line from a loess regression along with its 95 percent confidence interval. In the first period, there does not seem to be much evidence of warming. For most years after 1960, the average monthly temperature was below that of the historical baseline. In the second period, however, the average monthly temperature was above the historical baseline for most months. Furthermore, the rate of warming is increasing, particularly after 1995. 
+
+Using OLS regression with fixed effect for month and grid, I estimate that the annual rate of change for temperature is -0.008 C (SE = 0.002) in the first period and 0.036 C (SE = 0.001) in the second period. While the annual rate of change in temperature is statistically different from 0 in the first period, it remains substantively small. In contrast, the annual rate of change in temperature in the same period is most statistically significant and substantively large. 
+
+Furthermore, I estimate the annual rate of change in temperature for each grid in the two periods as labeled heatmaps. I estimated the annual rate of change for grids that contain more than 50 observations with fixed effects for month.
+
+![Grids 1](graphics/grid_effects_1.png)
+
+![Grids 2](graphics/grid_effects_2.png)
+
+In the first period, the majority of grids show a negative annual change in temperature, with a few exceptions in the Alaska and Western Canada. In the second period, the majority of grids show a positive annual change in temperature. The fastest rates of warming occur in the Western parts of the U.S. and Canada, including Alaska. The Arctic regions of Canada have experienced the most variation in rates of temperature change. 
 
 
 
