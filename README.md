@@ -1,5 +1,7 @@
 # Climate Change in North America
 
+## Baobao Zhang
+
 ## Summary
 Using average monthly surface temperature data from the National Oceanic and Atmospheric Administration, I analyzed the rate of climate change in the U.S. and Canada for two periods: 1950-1980 and 1980-2010. Using data visualization and regression analysis, I determine that the rate of global warming is faster in the second period than the first -- at about a rate of 0.036 degrees C annually. Furthermore, Western parts of the U.S. and Canada, including Alaska, experience higher rates of warming compared with other regions. 
 
