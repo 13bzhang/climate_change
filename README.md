@@ -4,7 +4,7 @@
 Using average monthly surface temperature data from the National Oceanic and Atmospheric Administration, I analyzed the rate of climate change in the U.S. and Canada for two periods: 1950-1980 and 1980-2010. Using data visualization and regression analysis, I determined that the annual rate of global warming is significantly greater in the second period (p-value < 0.001) than the first. Furthermore, Western parts of the U.S. and Canada, including Alaska, experienced higher rates of warming compared with other regions. 
 
 ## Data Source
-The data for my analysis comes from the Global Historical Climatology Network Monthly (GHCNM) dataset Version 3. It contains the mean monthly temperature for 7280 weather stations around the world. I used the "adjusted" version of the dataset because the researchers who created the GHCNM dataset have implemented quality control. Because the large size of the dataset, I discretized the dataset into grids of 4 degrees in length and width; I use the mean monthly temperature of stations within each grid as my unit of analysis. Each grid receives equal weight in my analysis. 
+The data for my analysis comes from the Global Historical Climatology Network Monthly (GHCNM) dataset Version 3. It contains the mean monthly temperature for 7280 weather stations around the world. I used the "adjusted" version of the dataset because the researchers who created the GHCNM dataset have implemented quality control. Because the large size of the dataset, I discretized the dataset into grids of 4 degrees in length and width; I use the mean monthly temperature of stations within each grid as my unit of analysis. Each grid receives equal weight in my analysis.
 
 ## Sparkline Visualization
 
@@ -31,7 +31,9 @@ For grids that have less than 25 percent monthly data missing, I also display th
 ### Mean Anomaly Temperatures: 1950-2010
 ![Mean 1](graphics/mean.png)
 
-## Estimating the Rate of Warming
+## Rates of Global Warming
+
+### Changes in Trend Across Time
 
 Next, I estimated the rate of warming across the entire region of interest and for each grid. First, I consider the monthly anomaly as a time series for the entire region. I constructed the following plot:
 
@@ -58,6 +60,8 @@ As one can see, the difference in annual rates is statistically significant (p-v
 In addition, I constructed a time series plot of the changes in the rate of global warming. For each month in the time series, I plotted the change in temperature between the month in the current year and the month of the previous year (i.e., the first difference). I also included a loess regression line along with its 95 percent confidence interval. As the plot shows, the rate of temperature change is fairly constant across time. For almost the whole period, the change in the rate is not statistically indistinguishable from zero.
 
 ![Time Series: Change](graphics/change_plot.png)
+
+### Differences in Geography
 
 Furthermore, I estimated the annual rate of change in temperature (1950-1980) for each grid as labeled heatmaps. To prevent extrapolation, I estimated the annual rate of change for only grids that contain more than 100 observations; I included fixed effects for month.
 
