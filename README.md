@@ -1,18 +1,18 @@
 # Climate Change in North America
 
 ## Summary
-Using average monthly surface temperature data from the National Oceanic and Atmospheric Administration, I analyzed the rate of climate change in the U.S. and Canada for two periods: 1950-1980 and 1980-2010. Using data visualization and regression analysis, I determined that the rate of global warming is faster in the second period than the first -- at about a rate of 0.036 degrees C annually. Furthermore, Western parts of the U.S. and Canada, including Alaska, experience higher rates of warming compared with other regions. 
+Using average monthly surface temperature data from the National Oceanic and Atmospheric Administration, I analyzed the rate of climate change in the U.S. and Canada for two periods: 1950-1980 and 1980-2010. Using data visualization and regression analysis, I determined that the annual rate of global warming is significantly greater in the second period (p-value < 0.001) than the first. Furthermore, Western parts of the U.S. and Canada, including Alaska, experienced higher rates of warming compared with other regions. 
 
 ## Data Source
-The data for my analysis comes from the Global Historical Climatology Network Monthly (GHCNM) dataset Version 3. It contains the mean monthly temperature for 7280 weather stations around the world. I used the "adjusted" version of the dataset because the researchers who created the GHCNM dataset have implemented quality control. Because the large size of the dataset, I discretized the dataset into grids of 4 degrees in length and width; I use the mean monthly temperature of stations within each grid as my unit of analysis.  
+The data for my analysis comes from the Global Historical Climatology Network Monthly (GHCNM) dataset Version 3. It contains the mean monthly temperature for 7280 weather stations around the world. I used the "adjusted" version of the dataset because the researchers who created the GHCNM dataset have implemented quality control. Because the large size of the dataset, I discretized the dataset into grids of 4 degrees in length and width; I use the mean monthly temperature of stations within each grid as my unit of analysis. Each grid receives equal weight in my analysis. 
 
 ## Sparkline Visualization
 
-To visualize the data in its most raw form, I constructed sparkline maps that show the monthly anomaly from 1950 to 2010. According to NOAA's monitoring references:
+To visualize the data in its most raw form, I constructed sparkline maps that show the monthly anomaly from 1950 to 2010. According to [NOAA's monitoring references] (https://www.ncdc.noaa.gov/monitoring-references/faq/anomalies.php):
 
 > The term temperature anomaly means a departure from a reference value or long-term average. A positive anomaly indicates that the observed temperature was warmer than the reference value, while a negative anomaly indicates that the observed temperature was cooler than the reference value.
 
-For each grid and month, the reference temperature is the mean temperature for the grid and month for 1920-2010. For each grid, month, and year, I create the anomaly by subtracting the reference temperature from that grid's monthly temperature that year. 
+For each grid and month, the reference temperature is the mean temperature for that grid and month in 1920-2010. For each grid, month, and year, I created the anomaly variable by subtracting the reference temperature from that grid's monthly temperature that year. 
 
 For each grid, I made sparkline maps that show the following:
 
@@ -20,7 +20,7 @@ For each grid, I made sparkline maps that show the following:
 * minimum anomaly temperature for each year
 * mean anomaly temperature for each year
 
-For grids that have less than 25 percent monthly data missing, I also display the best linear predictor for each trend mentioned above. 
+For grids that have less than 25 percent monthly data missing, I also display the best linear predictor for each trend mentioned above. Overall, I found that maximum, minimum, and mean anomaly temperatures have been increasing over time. Nevertheless, there exist variations in the warming rate. Rates of warming are greater in Western U.S. and Canada compared with the rest of the U.S. 
 
 ### Maximum Anomaly Temperatures: 1950-2010
 ![Max 1](graphics/max.png)
@@ -33,23 +33,37 @@ For grids that have less than 25 percent monthly data missing, I also display th
 
 ## Estimating the Rate of Warming
 
-Finally, I try to estimate the rate of warming across the entire region of interest and for each grid. First, I consider the monthly anomaly as a time series for the entire region. I constructed the following plot:
+Next, I estimated the rate of warming across the entire region of interest and for each grid. First, I consider the monthly anomaly as a time series for the entire region. I constructed the following plot:
 
-![Time Series 1](graphics/main_plot.png)
+![Time Series: All](graphics/main_plot.png)
 
-Besides plotting the actual data in each plot, I included the fitted trend line from a loess regression along with its 95 percent confidence interval. In the first period, there does not seem to be much evidence of warming. For most years between 1950 and 1979, the average monthly temperature was below that of reference baseline. In the first period, I estimated the annual rate of temperature change to be -0.007 degrees C. In the second period, however, the average monthly temperature was above the historical baseline for most months. Furthermore, after 1980, annual warming appears to follow a linear trend, increasing at a rate of 0.032 degrees C annually.
+Besides plotting the actual data in each plot, I included the fitted trend line from a loess regression along with its 95 percent confidence interval. In the first period, there did not seem to be much evidence of warming. For most years between 1950 and 1979, the average monthly temperature was below that of reference temperature. In the first period, I estimated the annual rate of temperature change to be -0.007 degrees C. In the second period, however, the average monthly temperature was above the reference temperature for most months. Furthermore, after 1980, annual warming appears to follow a linear trend, increasing at a rate of 0.032 degrees C annually.
 
-![Time Series 2](graphics/main_seasons.png)
+![Time Series: Seasons](graphics/main_seasons.png)
 
-Furthermore, I constructed the time series by the four seasons. The change in warming trend between the two periods is most visible in the winter and spring months. The change in trend occurred around a decade later, in 1990, for the fall months. 
+Furthermore, I constructed the time series dividing the data into the four seasons. The change in warming trends between the two periods is most visible in the winter and spring months. The change in trend occurred around 1990 for the fall months. 
 
-Using OLS regression with fixed effect for month and grid, I estimate that the annual rate of change for temperature is -0.008 C (SE = 0.002) in the first period and 0.036 C (SE = 0.001) in the second period. While the annual rate of change in temperature is statistically different from 0 in the first period, it remains substantively small. In contrast, the annual rate of change in temperature in the same period is most statistically significant and substantively large. 
+To estimate the difference in annual trend between the two periods, I used OLS regression with two model specifications. For both models, I used monthly anomaly as my outcome variable. Predictor variables included year, a dummy variable for period, and an interaction between year and the dummy variable for period. In Model 1, I included fixed effects for month. In Model 2, I included fixed effects for month and grid. The results are reported in the following table:
 
-Furthermore, I estimate the annual rate of change in temperature for each grid as labeled heatmaps. I estimated the annual rate of change for grids that contain more than 100 observations with fixed effects for month.
+|                       | Model 1 | Model 2     |
+|-----------------------|---------|-------------|
+| 1950-1980 annual rate | -0.007  | -0.008      |
+| 1980-2010 annual rate | 0.032   | 0.034       |
+| Difference in rates   | 0.040   | 0.041       |
+| SE                    | 0.002   | 0.002       |
+| Fixed effects         | month   | month, grid |
+
+As one can see, the difference in annual rates is statistically significant (p-value < 0.001) between the two periods. In the first period, the annual rate of temperature change is somewhat negative; in the second period, the annual rate has become very positive.
+
+In addition, I constructed a time series plot of the changes in the rate of temperature change. For each month in the time series, I plotted the change in temperature from the month of the previous year (i.e., the first difference). I also included a loess regression line along with its 95 percent confidence interval. As the plot shows, the rate of temperature change is fairly constant across time. For almost the whole period, the change in the rate is not statistically indistinguishable from zero.
+
+![Time Series: Change](graphics/change_plot.png)
+
+Furthermore, I estimated the annual rate of change in temperature (1950-1980) for each grid as labeled heatmaps. To prevent extrapolation, I estimated the annual rate of change for only grids that contain more than 100 observations; I included fixed effects for month.
 
 ![Grids 1](graphics/grid_effects.png)
 
-The fastest rates of annual increase in temperature occur in the Western parts of the U.S. and Canada, including Alaska. The fast rates of warming
+The fastest rates of annual increase in temperature occurred in the Western parts of the U.S. and Canada, including Alaska. The faster rates of warming in the northern parts of the continent is suggestive of polar amplification, the phenomenon in which global warming is more extreme near the poles than in the areas in between. 
 
 
 
