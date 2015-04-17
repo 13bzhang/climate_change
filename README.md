@@ -1,7 +1,7 @@
 # Climate Change in North America
 
 ## Summary
-Using average monthly surface temperature data from the National Oceanic and Atmospheric Administration, I analyzed the rate of climate change in the U.S. and Canada for two periods: 1950-1980 and 1980-2010. Using data visualization and regression analysis, I determined that the annual rate of global warming is significantly greater in the second period (p-value < 0.001) than the first. Furthermore, Western parts of the U.S. and Canada, including Alaska, experienced higher rates of warming compared with other regions. 
+Using average monthly surface temperature data from the National Oceanic and Atmospheric Administration (NOAA), I analyzed the rate of climate change in the U.S. and Canada for two periods: 1950-1980 and 1980-2010. Using data visualization and regression analysis, I determined that the annual rate of global warming is significantly greater in the second period (p-value < 0.001) than the first. Furthermore, Western parts of the U.S. and Canada, including Alaska, experienced higher rates of warming compared with other regions. 
 
 ## Data Source
 The data for my analysis comes from the Global Historical Climatology Network Monthly (GHCNM) dataset Version 3. It contains the mean monthly temperature for 7280 weather stations around the world. I used the "adjusted" version of the dataset because the researchers who created the GHCNM dataset have implemented quality control. Because the large size of the dataset, I discretized the dataset into grids of 4 degrees in length and width; I use the mean monthly temperature of stations within each grid as my unit of analysis. Each grid receives equal weight in my analysis.
@@ -45,14 +45,13 @@ Besides plotting the actual data in each plot, I included the fitted trend line 
 
 Furthermore, I constructed the time series dividing the data into the four seasons. The change in warming trends between the two periods is most visible in the winter and spring months. The change in trend occurred around 1990 for the fall months. 
 
-To estimate the difference in annual trend between the two periods, I used OLS regression with two model specifications. For both models, I used monthly anomaly as my outcome variable. Predictor variables included year, a dummy variable for period, and an interaction between year and the dummy variable for period. In Model 1, I included fixed effects for month. In Model 2, I included fixed effects for month and grid. The results are reported in the following table:
-
+To estimate the difference in annual trend between the two periods, I used OLS regression with two model specifications. For both models, I used monthly anomaly as my outcome variable. Predictor variables included year, a dummy variable for period, and an interaction between year and the dummy variable for period. In Model 1, I included fixed effects for month. In Model 2, I included fixed effects for month and grid. The results from my regressions are reported in the following table:
+ 
 |                       | Model 1 | Model 2     |
 |-----------------------|---------|-------------|
 | Period 1: 1950-1979 annual rate | -0.007  | -0.008      |
 | Period 2: 1980-2010 annual rate | 0.032   | 0.034       |
-| Difference in rates   | 0.040   | 0.041       |
-| SE                    | 0.002   | 0.002       |
+| Difference in rates (SE)  | 0.040 (0.002)   | 0.041 (0.002)      |
 | Fixed effects         | month   | month, grid |
 
 As one can see, the difference in annual rates is statistically significant (p-value < 0.001) between the two periods. In the first period, the annual rate of temperature change is somewhat negative; in the second period, the annual rate has become very positive.
