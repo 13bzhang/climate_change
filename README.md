@@ -47,8 +47,8 @@ To estimate the difference in annual trend between the two periods, I used OLS r
 
 |                       | Model 1 | Model 2     |
 |-----------------------|---------|-------------|
-| 1950-1980 annual rate | -0.007  | -0.008      |
-| 1980-2010 annual rate | 0.032   | 0.034       |
+| Period 1: 1950-1979 annual rate | -0.007  | -0.008      |
+| Period 2: 1980-2010 annual rate | 0.032   | 0.034       |
 | Difference in rates   | 0.040   | 0.041       |
 | SE                    | 0.002   | 0.002       |
 | Fixed effects         | month   | month, grid |
