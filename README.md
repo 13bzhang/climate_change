@@ -55,7 +55,7 @@ To estimate the difference in annual trend between the two periods, I used OLS r
 
 As one can see, the difference in annual rates is statistically significant (p-value < 0.001) between the two periods. In the first period, the annual rate of temperature change is somewhat negative; in the second period, the annual rate has become very positive.
 
-In addition, I constructed a time series plot of the changes in the rate of temperature change. For each month in the time series, I plotted the change in temperature from the month of the previous year (i.e., the first difference). I also included a loess regression line along with its 95 percent confidence interval. As the plot shows, the rate of temperature change is fairly constant across time. For almost the whole period, the change in the rate is not statistically indistinguishable from zero.
+In addition, I constructed a time series plot of the changes in the rate of global warming. For each month in the time series, I plotted the change in temperature between the month in the current year and the month of the previous year (i.e., the first difference). I also included a loess regression line along with its 95 percent confidence interval. As the plot shows, the rate of temperature change is fairly constant across time. For almost the whole period, the change in the rate is not statistically indistinguishable from zero.
 
 ![Time Series: Change](graphics/change_plot.png)
 
